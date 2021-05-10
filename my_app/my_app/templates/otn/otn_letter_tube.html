@@ -1,0 +1,77 @@
+{% extends 'otn/index.html' %}
+
+{% block title %}
+    Письмо в РТН
+{% endblock %}
+
+{% block content %}
+    <div class="content_item">
+        <h1>Письмо в РТН (Трубопроводы)</h1>
+
+        <form class="form_inputs" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="template_name" value="RTN_letter_tube">
+            <h2>Сведения об экспертной организации</h2>
+                <input id="" name="expert_org_full_name" type="text" list="" value='Общество с ограниченной ответственностью "Волга-Пром-Экспертиза"' placeholder="Полное наименование">
+                <input id="" name="expert_org_short_name" type="text" list="" value='ООО "Волга-Пром-Экспертиза"' placeholder="Сокрёщенное наименование">
+                <input id="" name="ITN" type="text" list="" value="3444147995" placeholder="Идентификационный номер налогоплательщика ">
+                <input id="" name="PSRN" type="text" list="" value="1073444007988 " placeholder="ОГРН юр. лица">
+                <input id="" name="gen_director" type="text" list="" value="Генеральный директор – Колесниченко Вадим Михайлович" placeholder="Руководитель организации (должность, ФИО)">
+
+            <h2>Информация об экспертах</h2>
+                <input class="Exprets_count" name="Exprets_count" type="text" list="Exprets_count" placeholder="Введите количество экспертов">
+                <div class="expert" id="expert_№1" style="display: none">
+                    <h2>Эксперт №1</h2>
+                    <input id="name_expert1" name="name_expert1" type="text" list="Exprets" placeholder="Ф.И.О. эксперта (полностью)">
+                    <input id="sphere_expert1" name="sphere_expert1" type="text" placeholder="Сфера квалификации">
+                    <input id="licence_expert1" name="licence_expert1" type="text" value="Квалификационное удостоверение № " placeholder="Квалификационное удостоверение №___ от ___ г.">
+                </div>
+
+                <div class="expert" id="expert_№2" style="display: none">
+                    <h2>Эксперт №2</h2>
+                    <input id="name_expert2" name="name_expert2" type="text" list="Exprets" placeholder="Ф.И.О. эксперта (полностью)">
+                    <input id="sphere_expert2" name="sphere_expert2" type="text" placeholder="Сфера квалификации">
+                    <input id="licence_expert2" name="licence_expert2" type="text" value="Квалификационное удостоверение № " placeholder="Квалификационное удостоверение №___ от ___ г.">
+                </div>
+
+                <div class="expert" id="expert_№3" style="display: none">
+                    <h2>Эксперт №3</h2>
+                    <input id="name_expert3" name="name_expert3" type="text" list="Exprets" placeholder="Ф.И.О. эксперта (полностью)">
+                    <input id="sphere_expert3" name="sphere_expert3" type="text" placeholder="Сфера квалификации">
+                    <input id="licence_expert3" name="licence_expert3" type="text" value="Квалификационное удостоверение № " placeholder="Квалификационное удостоверение №___ от ___ г.">
+                </div>
+
+            <h2>Сведения о ЗЭПБ</h2>
+                <input id="" name="tubes_count" type="text" list="tubes_count" placeholder="Количество трубопроводов (1,2,3 и т.д.)">
+                <input id="" name="tubes_type" type="text" list="type_tubes" placeholder="Тип трудопровода (технологический/паропровод)">
+
+                <input id="" name="number_eps" type="text" list="" placeholder="Номер ЗЭПБ">
+                <input id="" name="number_tube" type="text" value='трубопровод " ", поз. №'  placeholder='трубопровод "", поз. №'>
+
+            <h2>Сведения об опасном производственном объекте</h2>
+                <input id="production_rtn" name="production_rtn" type="text" list="Production" placeholder="Выберите производство">
+                <input id="facility_rtn" name="facility_rtn" type="text" list="" placeholder="Выберите установку">
+                <input id="" name="production_name" type="text" list="instence" placeholder="Наименование опасного производственного объекта">
+                <input id="" name="dang_class" type="text" list="Danger_class" placeholder="Класс опасности">
+                <input id="" name="number_reg" type="text" list="" value="рег.№А61-01219-0017" placeholder="Рег.№">
+
+            <h2>Краткая характеристика объекта экспертизы</h2>
+                <input id="" name="pressure" type="text" list="" value="0,8 МПа" placeholder="Давление (МПа)">
+                <input id="" name="temp" type="text" list="" value="+40" placeholder="Температура (С)">
+                <input id="" name="product" type="text" list="" placeholder="Среда">
+
+            <h2>Остальные данные ЗЭПБ</h2>
+                <input id="" name="date_direct" type="text" list="" placeholder="Дата подписания ЗЭПБ руководителем экспертной организации">
+                <input id="" name="date_limit" type="text" list="" placeholder="Срок дальнейшей безопасной эксплуатации объекта экспертизы">
+                <input id="" name="name_tech_directory" type="text" list="" value="А.А.Никитин" placeholder="Заместитель генерального директора, технический директор">
+                <input id="" name="position_otn_directory" type="text" list="Position" value="Начальник отдела технического надзора" placeholder="Должность ответсвенного лица">
+                <input id="" name="name_otn_directory" type="text" list="Boss" value="Шалденков Виталий Николаевич" placeholder="Ф.И.О. (полностью) ответственного лица">
+
+                <input id="" name="file_name" type="text" list="" placeholder="Введите название, под каким сохранить документ">
+
+                <button class="clear_btn">Очистить поля</button>
+
+                <button type="submit" class="to_fill" id="show" name="fill_btn">Заполнить</button>
+        </form>
+    </div>
+{% endblock %}

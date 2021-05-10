@@ -1,0 +1,29 @@
+{% extends 'otn/index.html' %}
+
+{% block title %}
+    Письмо в РТН
+{% endblock %}
+
+{% block content %}
+    <div class="content_item" >
+        <h1>Письмо в РТН (Аппараты)</h1>
+
+        <form class="form_inputs" id="RTN_letter_equip" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="template_name" value="RTN_letter_equip">
+
+            <input id="production_eq" name="production_eq" type="text" list="Production" placeholder="Выберите название производства">
+            <input id="facility_eq" name="facility_eq" type="text" placeholder="Выберите название установки">
+            <input id="number_eq" name="number_eq" type="text" placeholder="Введите номер заключения ЭПБ">
+            <input id="type_eq" name="type_eq" type="text" placeholder="Введите тип АППАРАТА">
+            <input id="name_eq" name="name_eq" type="text" placeholder="Введите название АППАРАТА">
+
+            <input id="" name="file_name" type="text" list="" placeholder="Введите название, под каким сохранить документ">
+
+            <button class="clear_btn">Очистить поля</button>
+
+            <button type="submit" class="to_fill" id="show" name="fill_btn">Заполнить</button>
+        </form>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<title>{% block title %}Template Application{% endblock %}</title>
+
+	<link rel="stylesheet" href="static/css/index.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<div class="page" id="page">  
+		<div class="sideBar"> <!-- БЛОК БОКОВОЙ НАВИГАЦИИ -->
+			<div class="sideMenu_icon" id="sideMenu_icon" onclick="openNav()">
+				<div class="icon"> </div>
+				<div class="icon"> </div>
+				<div class="icon"> </div>
+			</div>
+
+			<div id="mySidenav" class="sidenav">
+		  		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  		<a href="#" class="wrapSidenav" onclick="OTN()">Отдел технического надзора</a>
+		  		<a href="#" class="wrapSidenav" onclick="OK()">Отдел №2</a>
+		  		<a href="#" class="wrapSidenav">Отдел №3</a>
+		  		<a href="#" class="wrapSidenav">Отдел №4</a>
+		  		<a href="#" class="wrapSidenav">Отдел №5</a>
+		  		<a href="file:///D:/Python/PROJECT/saves/" target="_blank" class="wrapSidenav" id="history">История</a>
+			</div>
+		</div>
+
+		<div class="main_structure" id="main_structure">
+
+			<div class="office" id="OTN"> <!-- шаблоны ОТДЕЛА ТЕХНИЧЕСКОГО НАДЗОРА -->
+
+				<div class="side">
+					<ul class="menu">
+						<li class="menu__list"><a href="#">Трубы</a>
+							<ul class="menu__drop">
+								<li><a href="{% url 'otn_letter_tube' %}" >Письмо в РТН</a></li>
+								<li><a href="#">Служебная записка</a></li>
+							</ul>
+						</li>
+						<li class="menu__list"><a href="#">Аппараты</a>
+							<ul class="menu__drop">
+								<li><a href="{% url 'otn_letter_apparatus' %}">Письмо в РТН</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Печи</a></li>
+						<li><a href="#">Здания</a></li>
+						<li><a href="#">Динамика</a></li>
+					</ul>
+				</div>
+
+
+				<div class="content">
+					{% block content %}
+
+					{% endblock %}
+				</div>
+			</div>
+
+			<div class="office" id="OK" style="display: none"> <!-- шаблоны ОТДЕЛА КАДРОВ -->
+
+				<div class="side">
+					<ul class="menu">
+					<li class="menu__list"><a href="#">Пункт 1</a>
+						<ul class="menu__drop">
+							<li><a href="#" >Подпункт 1</a></li>
+							<li><a href="#">Подпункт 2</a></li>
+							<li><a href="#">Подпункт 3</a></li>
+							<li><a href="#">Подпункт 4</a></li>
+							<li><a href="#">Подпункт 5</a></li>
+						</ul>
+					</li>
+					<li class="menu__list"><a href="#">Пункт 2</a>
+						<ul class="menu__drop">
+							<li><a href="#">Подпункт 1</a></li>
+							<li><a href="#">Подпункт 2</a></li>
+							<li><a href="#">Подпункт 3</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Пункт 3</a></li>
+					<li><a href="#">Пункт 4</a></li>
+					<li><a href="#">Пункт 5</a></li>
+					<li><a href="#">Пункт 6</a></li>
+					<li><a href="#">Пункт 7</a></li>
+					</ul>
+				</div>
+
+
+				<div class="content">
+
+					<div id="" class="content_item" style="display: none">
+						<h1>Пункт 1 --- Подпункт 1</h1>
+						<form class="form_inputs" id="OK_item_№1">
+							<input id="" name="Элемент №1-1" type="text" placeholder="Выберите название">
+							<input id="" name="Элемент №1-2" type="text" placeholder="Выберите название">
+							<input id="" name="Элемент №1-3" type="text" placeholder="Введите номер">
+							<input id="" name="Элемент №1-4" type="text" placeholder="Введите название">
+						</form>
+						<button id="clear_btn">Очистить поля</button>
+
+						<button id="show">Заполнить</button>
+					</div>
+
+					<div id="" class="content_item" style="display: none">
+						<h1>Пункт 2 --- Подпункт 1</h1>
+						<!-- <form id="form_inputs"> -->
+							<input id="" name="" type="text" placeholder="Выберите название">
+							<input id="" name="" type="text" placeholder="Выберите">
+							<input id="" name="" type="text" placeholder="Введите">
+							<input id="" name="" type="text" placeholder="Введите">
+							<input id="" name="" type="text" placeholder="Введите">
+						<!-- </form> -->
+						<button id="clear_btn">Очистить поля</button>
+
+						<button id="show">Заполнить</button>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- <p><b>Results:</b> <span id="results"></span></p> -->
+
+	<div class="data_lists" id="data_lists">
+		<div class="data_lists_production">
+			<datalist id="Production">
+				<option value="Производство №1"></option>
+				<option value="Производство №2"></option>
+				<option value="Производство №3"></option>
+				<option value="Производство №4"></option>
+				<option value="Товарное производство"></option>
+				<option value="Блок главного энергетика"></option>
+				<option value="ОЗХ"></option>
+			</datalist>
+
+			<datalist id="Production_number_1">
+				<option value="АВТ-6"></option>
+				<option value="АВТ-7"></option>
+				<option value="АВТ-8"></option>
+				<option value="АВТ-9"></option>
+				<option value="АВТ-10"></option>
+				<option value="ЭЛОУ-7"></option>
+				<option value="ЭЛОУ-8"></option>
+				<option value="ЭЛОУ-9"></option>
+				<option value="19/3"></option>
+				<option value="ТЭУ"></option>
+				<option value="УПНК"></option>
+				<option value="АТ-9"></option>
+				<option value="21-10/3M"></option>
+				<option value="ФСБ"></option>
+			</datalist>
+
+			<datalist id="Production_number_2">
+				<option value="КТ с.001"></option>
+				<option value="КТ с.100"></option>
+				<option value="КТ с.200"></option>
+				<option value="КТ с.300"></option>
+				<option value="КТ с.400"></option>
+				<option value="КТ КХ"></option>
+				<option value="КТ тов.парк"></option>
+				<option value="МТБЭ"></option>
+				<option value="43/103"></option>
+				<option value="Участок по перекачке газа"></option>
+				<option value="УПВ"></option>
+				<option value="УПС"></option>
+				<option value="ГФУ-2"></option>
+				<option value="25/12"></option>
+				<option value="25/12 тов.парк"></option>
+				<option value="РОСК"></option>
+				<option value="ГФХ"></option>
+			</datalist>
+
+			<datalist id="Production_number_3">
+				<option value="Г-43-6Ц"></option>
+				<option value="Г-43-6А"></option>
+				<option value="Реаг. хоз-во"></option>
+				<option value="Г-43-6К"></option>
+			</datalist>
+
+			<datalist id="Production_number_4">
+				<option value="КПА с.100"></option>
+				<option value="КПА с.200"></option>
+				<option value="КПА с.300"></option>
+				<option value="КПА с.400"></option>
+				<option value="КПА с.500"></option>
+				<option value="КПА с.600"></option>
+				<option value="КПА с.700"></option>
+				<option value="КПА с.800"></option>
+				<option value="КПА с.900А"></option>
+				<option value="КПА с.900В"></option>
+				<option value="КПА с.1000"></option>
+				<option value="КПА КХ"></option>
+				<option value="Л-24-9"></option>
+				<option value="Парк Л-24/6,7,9"></option>
+				<option value="ГО БКК"></option>
+				<option value="ТРХ"></option>
+				<option value="Л-35/11-1000"></option>
+				<option value="Парк нас.7024"></option>
+				<option value="Л-24-7"></option>
+				<option value="КЦА"></option>
+				<option value="ГО ДТ"></option>
+				<option value="Парк тит.222"></option>
+				<option value="Л-24-6"></option>
+				<option value="АКУ"></option>
+				<option value="Изомалк-2"></option>
+				<option value="Л-35/11-600"></option>
+			</datalist>
+
+			<datalist id="Production_tovarnoe">
+				<option value="Нас.тит.210 ТСБ-1"></option>
+				<option value="Нас.тит.1100 ТСБ-1 "></option>
+				<option value="Парк СУГ ТСБ-1"></option>
+				<option value="ПСГ ТСБ-1"></option>
+				<option value="Нас.тит.1124 ТСБ-1"></option>
+				<option value="Нас.тит.146 ТСБ-1"></option>
+				<option value="Эст.379, 380, 378, н.384-1/2 ТСБ-1"></option>
+				<option value="Причал ТСБ-2"></option>
+				<option value="Нас.1163 ТСБ-2 "></option>
+				<option value="Нас.1165Р ТСБ-2"></option>
+				<option value='АССБ н.131, 147, п/п, парк "Изомалк-2" Терминал СГК ТСБ-1'></option>
+			</datalist>
+
+			<datalist id="Production_bge">
+				<option value="ЦВК-2"></option>
+				<option value="ЦВК-3"></option>
+				<option value="ЦВК-4"></option>
+				<option value="ЦВК-5"></option>
+				<option value="ХВО-2"></option>
+				<option value="ХВО-3"></option>
+				<option value="ЦОК-1"></option>
+				<option value="ЦОК-2"></option>
+				<option value="ПКУ (паропроводы)"></option>
+				<option value="УТС"></option>
+				<option value="Бойлерная КТ"></option>
+				<option value="Бойлерная КПА "></option>
+				<option value="ТСУ"></option>
+				<option value="ТТУ"></option>
+			</datalist>
+
+			<datalist id="Production_ozh">
+				<option value="БОС-1"></option>
+				<option value="БОС-2"></option>
+				<option value="ББО"></option>
+				<option value="Вемко"></option>
+				<option value="нас. 8611"></option>
+				<option value="Флотация"></option>
+				<option value="БКФ"></option>
+				<option value="УПНШ"></option>
+				<option value="Буф.пруд"></option>
+				<option value="нас.1507"></option>
+				<option value="БОВ-1"></option>
+				<option value="БОВ-2А"></option>
+				<option value="БОВ-6А"></option>
+				<option value="БОВ-7"></option>
+				<option value="БОВ-8"></option>
+				<option value="БОВ-10"></option>
+			</datalist>
+		</div>
+
+		<div class="data_lists_rtn_info">
+			<datalist id="Position">
+				<option value="Начальник отдела технического надзора"></option>
+				<option value="И.о. начальника отдела технического надзора"></option>
+			</datalist>
+
+			<datalist id="Boss">
+				<option value="Шалденков Виталий Николаевич"></option>
+			</datalist>
+
+			<datalist id="Danger_class">
+				<option value="I"></option>
+				<option value="II"></option>
+				<option value="III"></option>
+				<option value="IV"></option>
+			</datalist>
+
+			<datalist id="Exprets">
+				<option value="Мелихов Владимир Юрьевич"></option>
+				<option value="Зуев Виктор Петрович"></option>
+				<option value="Стуров Дмитрий Геннадьевич"></option>
+			</datalist>
+
+			<datalist id="Exprets_count">
+				<option value="1"></option>
+				<option value="2"></option>
+				<option value="3"></option>
+			</datalist>
+
+			<datalist id="instance">
+				<option value='«Площадка комбинированной установки глубокой переработки мазута КТ-1/1»'></option>
+			</datalist>
+
+			<datalist id="type_tubes">
+				<option value="технологический"></option>
+				<option value="паропровод"></option>
+			</datalist>
+
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+	<script type="text/javascript">
+
+		/* Set the width of the side navigation to 45% */
+		function openNav() {
+		    document.getElementById("mySidenav").style.width = "45%";
+    		document.getElementById("main_structure").style.filter = "blur(5px)";
+		}
+
+		/* Set the width of the side navigation to 0 */
+		function closeNav() {
+		    document.getElementById("mySidenav").style.width = "0";
+    		document.body.style.backgroundColor = "#0f6394c1"; 
+    		document.getElementById("main_structure").style.filter = null;
+		}
+
+		function OTN(){
+			//check = 'RTN_letter_tube';
+			document.getElementById("OTN").setAttribute("style", "display: block");
+			document.getElementById("OK").setAttribute("style", "display: none");
+		};
+
+		function OK(){
+			//check = 'RTN_letter_tube';
+			document.getElementById("OTN").setAttribute("style", "display: none");
+			document.getElementById("OK").setAttribute("style", "display: block");
+		};
+
+
+		// Ассоциативный массив для определения блока установок каждому производству
+		let prod_block = {
+			"Производство №1":"Production_number_1",
+			"Производство №2":"Production_number_2",
+			"Производство №3":"Production_number_3",
+			"Производство №4":"Production_number_4",
+			"Товарное производство":"Production_tovarnoe",
+			"Блок главного энергетика":"Production_bge",
+			"ОЗХ":"Production_ozh",
+		};
+
+		let experts_sphere_info = {
+			"Мелихов Владимир Юрьевич": "Э7ТУ, первой категории",
+			"Зуев Виктор Петрович": "Э7ЗС, первой категории",
+			"Стуров Дмитрий Геннадьевич": "Э12ТУ, первой категории",
+		};
+
+		let experts_license_info = {
+			"Мелихов Владимир Юрьевич": "Квалификационное удостоверение № АЭ.16.02792.001 от 09.09.2016 г.",
+			"Зуев Виктор Петрович": "Квалификационное удостоверение № АЭ.17.04280.001 от 10.03.2017 г.",
+			"Стуров Дмитрий Геннадьевич": "Квалификационное удостоверение № АЭ.16.01754.003 от 09.09.2016г. ",
+		};
+
+
+		// При изменении значения INPUT(Производство) - назначаем нужный атрибут INPUT(Установка) |Трубы- Письмо РТН|
+		$("#production_rtn").change(function(){
+   			let production_rtn_val = $(this).val(); // Значение в поле ввода - ПРОИЗВОДСТВО
+   			$('#facility_rtn').attr("list", prod_block[production_rtn_val])
+   			// console.log(prod_block[production_rtn_val])
+		});
+
+		// При изменении значения INPUT(ФИО ЭКСПЕРТА) - назначаем нужный атрибут INPUT(КВАЛИФИКАЦИЯ ЭКСПЕРТА) |Трубы- Письмо РТН|
+		$("#name_expert1").change(function(){
+   			let expert_name_val = $(this).val(); // Значение в поле ввода - ФИО эксперта
+   			$('#sphere_expert1').attr("value", experts_sphere_info[expert_name_val])
+   			$('#licence_expert1').attr("value", experts_license_info[expert_name_val])
+		});
+
+		$("#name_expert2").change(function(){
+   			let expert_name_val = $(this).val(); // Значение в поле ввода - ФИО эксперта
+   			$('#sphere_expert2').attr("value", experts_sphere_info[expert_name_val])
+   			$('#licence_expert2').attr("value", experts_license_info[expert_name_val])
+		});
+
+		$("#name_expert3").change(function(){
+   			let expert_name_val = $(this).val(); // Значение в поле ввода - ФИО эксперта
+   			$('#sphere_expert3').attr("value", experts_sphere_info[expert_name_val])
+   			$('#licence_expert3').attr("value", experts_license_info[expert_name_val])
+		});
+
+		$(".Exprets_count").change(function(){
+   			let expert_count_val = $(this).val(); // Значение в поле ввода - КОЛЛИЧЕСТВО ЭКСПЕРТОВ
+
+   			if (expert_count_val == 1) {
+   				document.getElementById("expert_№1").setAttribute("style", "display: block");
+   				document.getElementById("expert_№2").setAttribute("style", "display: none");
+   				document.getElementById("expert_№3").setAttribute("style", "display: none");
+   			} else if (expert_count_val == 2) {
+   				document.getElementById("expert_№1").setAttribute("style", "display: block");
+   				document.getElementById("expert_№2").setAttribute("style", "display: block");
+   				document.getElementById("expert_№3").setAttribute("style", "display: none");
+   			} else if (expert_count_val == 3) {
+   				document.getElementById("expert_№1").setAttribute("style", "display: block");
+   				document.getElementById("expert_№2").setAttribute("style", "display: block");
+   				document.getElementById("expert_№3").setAttribute("style", "display: block");
+   			} else if (expert_count_val == 0) {
+   				document.getElementById("expert_№1").setAttribute("style", "display: none");
+   				document.getElementById("expert_№2").setAttribute("style", "display: none");
+   				document.getElementById("expert_№3").setAttribute("style", "display: none");
+   			}
+
+		});
+
+
+
+		// При изменении значения INPUT(Производство) - назначаем нужный атрибут INPUT(Установка) |Аппараты- Письмо РТН|
+		$("#production_eq").change(function(){
+   			let production_eq_val = $(this).val(); // Значение в поле ввода - ПРОИЗВОДСТВО
+   			$('#facility_eq').attr("list", prod_block[production_eq_val])
+		});
+
+	</script>
+</body>
+</html>

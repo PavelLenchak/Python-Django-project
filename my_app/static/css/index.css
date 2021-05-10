@@ -1,0 +1,312 @@
+body {
+	background: #0f6394c1;
+	/*0079c1*/
+	color: #0B0C10;
+	padding: 0;
+	margin: 0;
+}
+
+* {
+	font-family: 'din';
+	box-sizing: border-box;
+	font-weight: 300;
+}
+
+
+/*postion of animation background (molecules)*/
+#particles-js {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	min-height: 3000px;
+}
+
+/*position and style of form filling location*/
+#page {
+	position: relative;
+	z-index: 2;
+	width: 90%;
+	margin: 0 auto;
+	padding: 8px;
+	background: #eee;
+	box-shadow: 1px 1px 10px 4px #eee;
+}
+
+
+/*style of ALL INPUTS*/
+input{
+	display: block;
+	border: none;
+	background: #a0cee8;
+	border-radius: 10px
+	padding: 25px;
+	color: black;
+	outline: none;
+	width: 100%;
+	font-size: 25px;
+	font-weight: bold;
+	margin-top: 15px;
+}
+input::placeholder {
+	color: #0f6394c1;
+}
+
+h1{
+	display: block;
+	border: none;
+	margin: 20px auto;
+	text-align: center;
+
+	background: #eee;
+
+	border-radius: 10px;
+	border: 2px solid #0f6394c1;
+	padding: 20px;
+	color: #0B0C10;
+	outline: none;
+	width: 50%;
+	font-size: 25px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+h2{
+	display: block;
+	border: 2px solid #0f6394c1;
+	margin-top: 20px;
+	text-align: center;
+
+	background: #eee;
+
+	border-radius: 5px;
+	padding: 5px;
+	color: #0B0C10;
+	outline: none;
+	width: 100%;
+	font-size: 15px;
+/*	text-transform: uppercase;*/
+	font-weight: bold;
+}
+
+
+a{text-decoration: none;} /*Нет подчеркиваний*/
+
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none; /*Убираем подчеркивания, кружочки*/
+}
+
+li{
+	display: inline-block; /*Выстраиваем в строчку*/
+}
+
+.side {
+	/*margin-top: 40px; Расположение от края страницы*/
+	width: 100%;
+	height: 80px;
+	background: #0f6394c1;
+	padding: 20px 0px 0px 10px;
+	box-shadow: 1px 1px 10px 4px #1F2833;
+
+}
+
+/*style of menu*/
+.menu a{
+	background: #eee;
+	color: #0B0C10;
+	width: 150px;
+	padding: 10px; /*Отступ между контентом и границей элемента*/
+	display: block;
+	border-bottom: 1px #666;
+	transition: 0.5s all;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.menu a:hover{
+	background: #66FCF1;
+	padding: 10px 0 10px 20px;
+}
+
+.menu li:first-child a,
+.menu li .menu__drop li:first-child a{
+	border-radius: 3px 3px 0 0;
+}
+
+.menu li:last-child a,
+.menu li .menu__drop li:last-child a{
+	border-radius: 0 0 3px 3px;
+	border-bottom: 0;
+}
+
+.menu li .menu__drop li a{
+	border-radius: 0;
+	border-bottom: 1px solid #666;
+}
+
+/*main menu*/
+.menu__list{
+	position: relative;
+}
+
+.menu__drop{
+	position: absolute;
+	width: 100%;
+	top: -9999em;
+	opacity: 0;
+	border-top: 10px solid transparent;
+	transition: 0.1s opacity;
+}
+
+.menu__list:hover .menu__drop{
+	opacity: 1;
+	top: 100%;
+}
+
+/*icom for support menu*/
+.menu__list::after{
+	content: " ";
+	position: absolute;
+	border: 5px solid;
+	border-color: #0B0C10 transparent transparent transparent;
+	top: 1em;
+	right: 0.7em;
+	transition: 0.5s;
+}
+
+.menu__list:hover::after{
+	transform: scaleY(-1);
+}
+
+/*botton CLEAR*/
+.clear_btn {
+	display: block;
+	border: none;
+	margin-top: 10px;
+	position: absolute;
+	right: 10px;
+
+	background: #a0cee8;
+
+	border-radius: 10px
+	padding: 30px;
+	color: #0B0C10;
+	outline: none;
+	width: 120px;
+	font-size: 15px;
+	cursor: pointer;
+
+}
+.clear_btn:hover{
+	background: #66FCF1;
+	font-weight: bold;
+}
+
+/*style of botton - TO FILL*/
+.to_fill {
+	display: block;
+	border: 2px solid #0f6394c1;
+	margin-top: 40px;
+
+	background: #a0cee8;
+
+	border-radius: 10px;
+	padding: 20px;
+	color: #0B0C10;
+	outline: none;
+	width: 100%;
+	font-size: 30px;
+	text-transform: uppercase;
+	cursor: pointer;
+
+}
+.to_fill:hover{
+	background: #66FCF1;
+	font-weight: bold;
+}
+
+
+
+
+/* icon of side navigation */
+.sideMenu_icon {
+	position: absolute;
+	display: block;
+	width: 50px;
+	right: 0;
+	cursor: pointer;
+	padding-top: 20px;
+}
+.icon:hover {
+	background: #66FCF1;
+}
+
+.icon {
+	width: 35px;
+    height: 5px;
+    margin: 6px 0;
+
+    background: #eee;
+}
+
+
+/* БОКОВАЯ НАВИГАЦИЯ */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+
+	background: #eee;
+
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.sidenav #history {
+	margin-top: 300px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #0B0C10;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav .wrapSidenav:hover {
+    background: #66FCF1;
+    padding: 10px 0 10px 20px;
+}
+
+.sidenav .closebtn:hover {
+    color: #666;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
